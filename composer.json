@@ -1,0 +1,26 @@
+{
+    "name": "johnstyle/google-authenticator",
+    "type": "library",
+    "description": "PHP 5 Google Authenticator",
+    "keywords": ["PHP 5", "PHP5", "Google", "Authenticator"],
+    "homepage": "https://github.com/johnstyle/google-authenticator",
+    "license": "GPL v3",
+    "authors": [
+        {
+            "name": "Jonathan Sahm",
+            "email": "contact@johnstyle.fr",
+            "homepage": "http://www.johnstyle.fr",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "christian-riesen/base32": "1.2"
+    },
+    "autoload": {
+        "psr-0": {
+            "Johnstyle\\GoogleAuthenticator\\": "src"
+        }
+    },
+    "minimum-stability": "dev"
+}
