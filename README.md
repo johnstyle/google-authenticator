@@ -1,9 +1,11 @@
-Google-Authenticator
+#Google-Authenticator
 ====================
 
 Google Authenticator
 
-##Step 1 - Register application
+##Usage
+
+###Step 1 - Register application
 
     $google = new GoogleAuthenticator();
 
@@ -14,7 +16,7 @@ Google Authenticator
     $secretKey = $google->getSecretKey();
 
 
-##Step 2 - Verify Code
+###Step 2 - Verify Code
 
     $google = new GoogleAuthenticator($secretKey);
 
@@ -26,3 +28,6 @@ Google Authenticator
 
         // OK
     }
+
+##Demonstration
+[Demonstration](http://github.johnstyle.fr/repository/johnstyle/google-authenticator/)
