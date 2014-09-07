@@ -22,12 +22,21 @@ use Base32\Base32;
  */
 class GoogleAuthenticator
 {
-    const API_URL = 'https://chart.googleapis.com/chart?chs=200x200&chld=M|0&cht=qr&chl=';
+    const API_URL = 'https://chart.googleapis.com/chart?chs={chs}&chld=M|0&cht=qr&chl={chl}';
     const CODE_LENGTH = 6;
     const SECRET_LENGTH = 16;
 
     /** @var string $secretKey */
     protected $secretKey;
+
+    /** @var array $base32Chars */
+    protected $base32Chars= array(
+        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
+        'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
+        'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
+        'Y', 'Z', '2', '3', '4', '5', '6', '7',
+        '='
+    );
 
     /**
      * @param  null $secretKey
@@ -43,7 +52,7 @@ class GoogleAuthenticator
         }
 
         if(static::SECRET_LENGTH !== strlen($this->secretKey)
-            || static::SECRET_LENGTH !== strcspn($this->secretKey, static::SECRET_LENGTH)) {
+            || 0 !== count(array_diff(str_split($this->secretKey), $this->base32Chars))) {
 
             throw new GoogleAuthenticatorException('Invalid secret key');
         }
@@ -54,13 +63,7 @@ class GoogleAuthenticator
      */
     public function generateSecretKey()
     {
-        $base32Chars = array(
-            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
-            'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
-            'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
-            'Y', 'Z', '2', '3', '4', '5', '6', '7',
-            '='
-        );
+        $base32Chars = $this->base32Chars;
 
         unset($base32Chars[32]);
 
@@ -76,11 +79,22 @@ class GoogleAuthenticator
 
     /**
      * @param  string $applicationName
+     * @param  int    $size
      * @return mixed
      */
-    public function getQRCodeUrl($applicationName)
+    public function getQRCodeUrl($applicationName, $size = 200)
     {
-        return static::API_URL . urlencode('otpauth://totp/' . $applicationName . '?secret=' . $this->getSecretKey());
+        return str_replace(
+            array(
+                '{chs}',
+                '{chl}'
+            ),
+            array(
+                $size . 'x' . $size,
+                urlencode('otpauth://totp/' . $applicationName . '?secret=' . $this->getSecretKey())
+            ),
+            static::API_URL
+        );
     }
 
     /**
