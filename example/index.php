@@ -12,7 +12,7 @@
 
 use Johnstyle\GoogleAuthenticator\GoogleAuthenticator;
 
-include 'vendor/autoload.php';
+include '../vendor/autoload.php';
 
 // /!\ For example ! Don't POST secret key !!
 $secretKey = isset($_POST['secretKey']) ? $_POST['secretKey'] : null;
