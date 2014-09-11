@@ -1,6 +1,11 @@
 #Google-Authenticator
 ====================
 
+[![Latest Stable Version](https://poser.pugx.org/johnstyle/google-authenticator/v/stable.png)](https://packagist.org/packages/johnstyle/google-authenticator)
+[![Total Downloads](https://poser.pugx.org/johnstyle/google-authenticator/downloads.png)](https://packagist.org/packages/johnstyle/google-authenticator)
+[![Build Status](https://travis-ci.org/johnstyle/google-authenticator.png?branch=master)](https://travis-ci.org/johnstyle/google-authenticator)
+[![Flattr this](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=Johnstyle&url=https%3A%2F%2Fgithub.com%2Fjohnstyle%2Fgoogle-authenticator%2F)
+
 Google Authenticator
 
 ##Usage
