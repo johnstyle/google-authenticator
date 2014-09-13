@@ -4,7 +4,7 @@
     "description": "PHP 5 Google Authenticator",
     "keywords": ["PHP 5", "PHP5", "Google", "Authenticator"],
     "homepage": "https://github.com/johnstyle/google-authenticator",
-    "license": "GPL v3",
+    "license": "GPL-3.0",
     "authors": [
         {
             "name": "Jonathan Sahm",
