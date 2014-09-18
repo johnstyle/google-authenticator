@@ -3,8 +3,8 @@
 [![Latest Stable Version](https://poser.pugx.org/johnstyle/google-authenticator/v/stable.png)](https://packagist.org/packages/johnstyle/google-authenticator)
 [![Total Downloads](https://poser.pugx.org/johnstyle/google-authenticator/downloads.png)](https://packagist.org/packages/johnstyle/google-authenticator)
 [![Build Status](https://travis-ci.org/johnstyle/google-authenticator.png?branch=master)](https://travis-ci.org/johnstyle/google-authenticator)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/1ca02d65-8610-44ac-ba40-84390b0873b5/mini.png)](https://insight.sensiolabs.com/projects/1ca02d65-8610-44ac-ba40-84390b0873b5)
 [![Dependency Status](https://www.versioneye.com/user/projects/541442669e162254b40000e5/badge.svg?style=flat)](https://www.versioneye.com/user/projects/541442669e162254b40000e5)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/1ca02d65-8610-44ac-ba40-84390b0873b5/mini.png)](https://insight.sensiolabs.com/projects/1ca02d65-8610-44ac-ba40-84390b0873b5)
 
 Google Authenticator
 
@@ -20,7 +20,7 @@ Google Authenticator
 
     // Save secret Key
     $secretKey = $google->getSecretKey();
-
+    ```
 
 ###Step 2 - Verify Code
 
@@ -35,6 +35,7 @@ Google Authenticator
 
         // OK
     }
+    ```
 
 ##Demonstration
 [Demonstration](http://github.johnstyle.fr/repository/johnstyle/google-authenticator/)
