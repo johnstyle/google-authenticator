@@ -30,7 +30,7 @@ class GoogleAuthenticator
     protected $secretKey;
 
     /** @var array $base32Chars */
-    protected $base32Chars= array(
+    protected $base32Chars = array(
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
         'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
         'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
@@ -107,21 +107,38 @@ class GoogleAuthenticator
 
     /**
      * @param  string $code
+     * @param  int    $range
      * @return bool
      */
-    public function verifyCode($code)
+    public function verifyCode($code, $range = 1)
     {
-        return ((string) $code) === $this->getCode();
+        $timeIndex = $this->getTimeIndex();
+
+        for ($i = -$range; $i <= $range; $i++) {
+
+            if (((string) $code) === $this->getCode($timeIndex + $i)) {
+
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
+     * @param  int $timeIndex
      * @return string
      */
-    public function getCode()
+    public function getCode($timeIndex = null)
     {
+        if (is_null($timeIndex)) {
+
+            $timeIndex = $this->getTimeIndex();
+        }
+
         $secretkey = Base32::decode($this->secretKey);
 
-        $hm = hash_hmac('SHA1', chr(0) . chr(0) . chr(0) . chr(0) . pack('N*', $this->getTimeIndex()), $secretkey, true);
+        $hm = hash_hmac('SHA1', chr(0) . chr(0) . chr(0) . chr(0) . pack('N*', $timeIndex), $secretkey, true);
 
         $value = unpack('N', substr($hm, ord(substr($hm, -1)) & 0x0F, 4));
 
