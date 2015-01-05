@@ -12,30 +12,30 @@ Google Authenticator
 
 ###Step 1 - Register application
 
-    ```PHP
-    $google = new GoogleAuthenticator();
+```PHP
+$google = new GoogleAuthenticator();
 
-    // Register application
-    echo $google->getQRCodeUrl('MyApplicationName');
+// Register application
+echo $google->getQRCodeUrl('MyApplicationName');
 
-    // Save secret Key
-    $secretKey = $google->getSecretKey();
-    ```
+// Save secret Key
+$secretKey = $google->getSecretKey();
+```
 
 ###Step 2 - Verify Code
 
-    ```PHP
-    $google = new GoogleAuthenticator($secretKey);
+```PHP
+$google = new GoogleAuthenticator($secretKey);
 
-    // User submit code
-    $userSubmitCode = '';
+// User submit code
+$userSubmitCode = '';
 
-    // Verify Code
-    if ($google->verifyCode($userSubmitCode)) {
+// Verify Code
+if ($google->verifyCode($userSubmitCode)) {
 
-        // OK
-    }
-    ```
+    // OK
+}
+```
 
 ##Demonstration
 [Demonstration](http://github.johnstyle.fr/repository/johnstyle/google-authenticator/)
