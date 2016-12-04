@@ -15,7 +15,7 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "christian-riesen/base32": "1.2"
+        "christian-riesen/base32": "^1.2"
     },
     "autoload": {
         "psr-0": {
